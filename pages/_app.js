@@ -2,6 +2,13 @@
 import React from 'react'
 import App, { Container } from "next/app"
 import Head from 'next/head'
+import { Provider } from "react-redux";
+import withRedux from "next-redux-wrapper"
+
+// Store
+import createReduxStore from '../src/components/store'
+
+const ReduxStore = (initialState, options) => createReduxStore(initialState, options)
 
 class MyApp extends App {
 
@@ -17,7 +24,7 @@ class MyApp extends App {
     }
 
     render() {
-        const { Component, pageProps } = this.props
+        const { Component, pageProps, store } = this.props
 
         return (
             <Container>
@@ -29,11 +36,13 @@ class MyApp extends App {
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P" />
                 </Head>
 
-                <Component {...pageProps} />
+                <Provider store={store}>
+                    <Component {...pageProps} />
+                </Provider>
 
             </Container>
         )
     }
 }
 
-export default MyApp
+export default withRedux(ReduxStore)(MyApp)
