@@ -1,0 +1,1 @@
+{"name":"react-next","version":"1.0.0","main":"server.js","license":"MIT","scripts":{"dev":"nodemon server"},"dependencies":{"express":"^4.17.1","next":"^9.1.1","next-routes":"^1.4.2","nodemon":"^1.19.3","react":"^16.10.2","react-dom":"^16.10.2"},"readme":"ERROR: No README data found!","_id":"react-next@1.0.0"}
