@@ -1,16 +1,15 @@
-// Libs
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-// Components
-import ReadDataReduxHook from '../src/components/ReadDataReduxHook'
+import ReactDataHomework from '../src/components/ReadDataHomework'
 
-const ReduxHook = (props) => {
+const HomeWork = (props) => {
 
     const [fristName, setFristName] = useState('')
     const [lastName, setLastName] = useState('')
 
     const show = useSelector(state => state.showReducer)
+
     const dispatch = useDispatch()
 
     const handleDispath = () => {
@@ -21,6 +20,11 @@ const ReduxHook = (props) => {
         }
 
         dispatch({ type: 'ADD_DATA', data: data })
+        dispatch({ type: 'SHOW', show: true })
+    }
+
+    const dispatchDontShow = () => {
+        dispatch({ type: 'SHOW', show: false })
     }
 
     return (
@@ -36,15 +40,20 @@ const ReduxHook = (props) => {
                     </div>
                     <br />
                     <button className="nes-btn is-error is-centered" onClick={handleDispath}>Dispatch</button>
+                    <button className="nes-btn is-error is-centered" onClick={dispatchDontShow}>Don't Show</button>
                 </div>
                 <br />
 
-
-                {show === true ? <ReadDataReduxHook /> : ''}
+                <div className="nes-container with-title">
+                    <p className="title">List member</p>
+                    <ul className="nes-list is-disc">
+                        {show === true ? <ReactDataHomework /> : ''}
+                    </ul>
+                </div>
 
             </div>
         </div>
     )
 }
 
-export default ReduxHook
+export default HomeWork

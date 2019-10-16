@@ -13355,14 +13355,41 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _reducers_dataStoreReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reducers/dataStoreReducer */ "./src/reducers/dataStoreReducer.js");
+/* harmony import */ var _reducers_showReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reducers/showReducer */ "./src/reducers/showReducer.js");
 // Libs
  // Reducers
 
 
+
 var rootReducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  dataStore: _reducers_dataStoreReducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  dataStore: _reducers_dataStoreReducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  showReducer: _reducers_showReducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (rootReducers);
+
+/***/ }),
+
+/***/ "./src/reducers/showReducer.js":
+/*!*************************************!*\
+  !*** ./src/reducers/showReducer.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'SHOW':
+      return action.show;
+
+    default:
+      return state;
+  }
+});
 
 /***/ }),
 
